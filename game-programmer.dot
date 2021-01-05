@@ -23,39 +23,37 @@ digraph {
         {
             node [fontcolor=white]
 
-            toctop [fixedsize=true,width=8, height=3, shape=plaintext,label=<
+            toctop [fixedsize=true,width=10, height=2, shape=plaintext,label=<
                 <TABLE BORDER="0">
                 <TR><TD><FONT FACE="Futura" POINT-SIZE="40">A STUDY PATH FOR</FONT></TD></TR>
-                <TR><TD><FONT FACE="Futura-Bold" POINT-SIZE="40">GAME PROGRAMMER</FONT></TD></TR>
-                <TR><TD><FONT FACE="Futura" POINT-SIZE="20">Milo Yip<br/>2017/8/7</FONT></TD></TR>
-                <TR><TD>https://github.com/miloyip/game-programmer</TD></TR>
+                <TR><TD><FONT FACE="Futura-Bold" POINT-SIZE="40">Media Solution Engineer</FONT></TD></TR>
+                <TR><TD><FONT FACE="Futura" POINT-SIZE="20">Kirin Media Software Solution<br/>2021-Jan-3</FONT></TD></TR>
                 </TABLE>
-            > URL="https://github.com/miloyip/game-programmer"]
+            >]
             tocbottom [fixedsize=true,width=8,height=0.01,style=invis,label=""]
         }
 
         {
             node [shape="box", style="rounded,filled", fixedsize=true, width=3, height=0.5, fontname="Futura", fontsize=10]
 
-            kid         [color="#edc5ce", label=<0. Game Programming for Kids>]
+
             cs          [color="#edc5c5", label="1. Computer Science"]
             proglang    [color="#eddac5", label="2. Programming Languages"]
-            softwaredev [color="#ebebc6", label="3. Software Development"]
-            math        [color="#d9ebc6", label=<4. Mathematics for Game Programming>]
-            gameprog    [color="#c5edc5", label="5. Game Programming"]
-            gameengine  [color="#c5ede1", label=<6. Game Engine Development>]
-            cg          [color="#c5e1ed", label="7. Computer Graphics"]
-            audio       [color="#c5cbed", label="8. Game Audio"]
-            phyanim     [color="#d7c5ed", label=<9. Game Physics and Animation>]
-            ai          [color="#edc5ed", label=<10. Game Artificial Intelligence>]
-            multiplayer [color="#edc5d7", label=<11. Multiplayer Game Programming>]
+            softwaredev [color="#ebebc6", label="3. Software Engineering"]
+            advancedprog  [color="#c5ede1", label=<4. Advanced Programming>]
+            cg          [color="#c5e1ed", label="5. Computer Graphics"]
+            math        [color="#d9ebc6", label=<5.1 Mathematics for Computer Graphics>]
+            audiovideo       [color="#c5cbed", label="6. Audio and Video"]
+            display     [color="#d7c5ed", label=<7. Display>]
+            camera          [color="#edc5ed", label=<8. Camera>]
+            ai [color="#edc5d7", label=<9. AI>]
         }
-        kid -> cs -> proglang -> softwaredev -> math -> gameprog -> gameengine
-        gameengine -> cg -> audio -> phyanim -> ai -> multiplayer[style=invis]
-        gameengine -> { cg; phyanim; ai; audio; multiplayer} [tailport=e, headport=e, constraint=false]
-
-        toctop -> kid [style=invis]
-        multiplayer -> tocbottom [style=invis]
+        cs -> proglang -> softwaredev -> advancedprog
+        advancedprog -> cg -> math -> audiovideo -> display -> camera -> ai[style=invis]
+        advancedprog -> { cg; display; camera; audiovideo; ai} [tailport=e, headport=e, constraint=false]
+        cg -> math
+        toctop -> cs [style=invis]
+        ai -> tocbottom [style=invis]
     }
 
     edge [style=dotted]
@@ -78,47 +76,6 @@ digraph {
         { legendA2; legendB2 } -> legendbottom [style=invis]
     }
 
-    subgraph cluster_kid {
-        fillcolor="#f9ecef"
-        label=<<TABLE BORDER="0" CELLPADDING="10"><TR><TD>0. Game Programming for Kids</TD></TR></TABLE>>
-
-        {
-            node [shape="box", style="rounded,filled" color="#edc5ce"]
-            {
-                rank=same
-                age5 [label="Beginning from Age of 5"]
-                age8 [label="Beginning from Age of 8"]
-            }
-            kidintermediate [label="Intermediate Game Programming for Kids"]
-        }
-
-        scratchjr [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/scratchjr.jpg"/></TD></TR><TR><TD>The Official<br/>ScratchJr Book (2015)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1593276710/"]
-        
-        codinggamesinscratch [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/codinggamesinscratch.jpg"/></TD></TR><TR><TD>Coding Games<br/>in Scratch<br/>(2015)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1465439358/"]
-        superscratchprogadv [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/superscratchprogadv.jpg"/></TD></TR><TR><TD>Super Scratch<br/>Programming Adventure!<br/>(2013)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1593275315/"]
-        learntoprogramwithscratch [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/learntoprogramwithscratch.jpg"/></TD></TR><TR><TD>Learn to Program<br/> with Scratch<br/>(2014)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1593275439/"]
-        helpyoukidswithcomputercoding [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/helpyoukidswithcomputercoding.jpg"/></TD></TR><TR><TD>Help Your Kids<br/>with Computer Coding<br/>(2015)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/146541956X/"]
-        
-        inventgamepython4 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/inventgamepython4.jpg"/></TD></TR><TR><TD>Invent Your Own<br/>Computer Games with<br/>Python 4th Ed (2016)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1593277954/"]
-        makinggamespython [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/makinggamespython.jpg"/></TD></TR><TR><TD>Making Games with<br/>Python &amp; Pygame (2012)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1469901730/"]
-        learntoprogramwithminecraft [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/learntoprogramwithminecraft.jpg"/></TD></TR><TR><TD>Learn to Program<br/>with Minecraft (2015)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1593276702/"]
-        adventuresinminecraft [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/adventuresinminecraft.jpg"/></TD></TR><TR><TD>Adventures in<br/>Minecraft (2014)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/111894691X/"]
-        "3dgpforkids" [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/3dgpforkids.jpg"/></TD></TR><TR><TD>3D Game Programming<br/>for Kids (2013)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1937785440/"]
-
-        age5 -> scratchjr -> age8
-        age8 -> codinggamesinscratch -> helpyoukidswithcomputercoding -> kidintermediate [arrowhead=normal, style=solid]
-        age8 -> superscratchprogadv -> learntoprogramwithscratch -> kidintermediate
-
-        kidintermediate -> inventgamepython4 -> makinggamespython
-        kidintermediate -> learntoprogramwithminecraft -> adventuresinminecraft
-        kidintermediate -> "3dgpforkids"
-
-        kidtop [fixedsize=true,width=8,height=0.01,style=invis, label=""]
-        kidbottom [fixedsize=true,width=8,height=0.01,style=invis,label=""]
-        kidtop -> {age5; age8} [style=invis]
-        adventuresinminecraft -> kidbottom [style=invis]
-    }
-
     subgraph cluster_cs {
         fillcolor="#f9ecec"
         label=<<TABLE BORDER="0" CELLPADDING="10"><TR><TD>1. Computer Science</TD></TR></TABLE>>
@@ -130,27 +87,33 @@ digraph {
             algorithm [label="Algorithm"]
             csmath [label="Mathematics for CS"]
         }
-
+        icpp3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/icpp3.jpg"/></TD></TR><TR><TD>Introduction to Computation and Programming<br/>Using Python<br/>(ICPP) 3rd Ed (2021)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0262542366/"]
         sicp2 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/sicp2.jpg"/></TD></TR><TR><TD>Structure and Interpretation<br/>of Computer Programs<br/>(SICP) 2nd Ed (1996)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0262510871/"]
         csapp3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/csapp3.jpg"/></TD></TR><TR><TD>Computer Systems<br/>(CSAPP) 3rd Ed (2015)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/013409266X/"]
         caaqa5 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/caaqa5.jpg"/></TD></TR><TR><TD>Computer Architecture<br/>(CAAQA) 5th Ed (2011)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/012383872X/"]
         mos4 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/mos4.jpg"/></TD></TR><TR><TD>Modern Operating<br/>System (MOS)<br/>4th Ed (2014)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/013359162X/"]
-        
+        cptt [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/cptt.jpg"/></TD></TR><TR><TD>Compilers: <br/>Principles, Techniques, and Tools<br/>2nd Ed (2006)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0321486811/"]
+
         clrs3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/clrs3.jpg"/></TD></TR><TR><TD>Introduction to<br/>Algorithms (CLRS)<br/>3rd Ed (2009)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0262033844/"]
         algorithms4 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/algorithms4.jpg"/></TD></TR><TR><TD>Algorithms<br/>4th Ed (2011)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/032157351X/"]
         
         concretemaths2 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/concretemaths2.jpg"/></TD></TR><TR><TD>Concrete Mathematics<br/>2nd Ed (1994)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0201558025/"]
         computationalscieng [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/computationalscieng.jpg"/></TD></TR><TR><TD>Computational Science<br/>and Engineering (2007)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0961408812/"]
+        numericalmathandcomputing7 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/numericalmathandcomputing7.jpg"/></TD></TR><TR><TD>Numerical Mathematics<br/>and Computing<br/>7th Ed (2012)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1133103715/"]
+        linearalgebra5 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/linearalgebra5.jpg"/></TD></TR><TR><TD>Linear Algebra<br/>and Its Applications<br/>5th Ed (2014)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/9780321982384/"]
+        calculus9 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/linearalgebra5.jpg"/></TD></TR><TR><TD>Calculus<br/>Early Transcendentals<br/>9th Ed (2020)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1337613924/"]
+        probandstats4 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/probandstats4.jpg"/></TD></TR><TR><TD>Probability and Statistics<br/>4th Ed (2018)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0134995473/"]
 
-        foundation -> { sicp2; csapp3 } -> { caaqa5; mos4 } [arrowhead=normal, style=solid]
+        foundation -> icpp3 -> {sicp2; csapp3 } -> { caaqa5 } -> mos4 -> cptt [arrowhead=normal, style=solid]
         algorithm -> clrs3 [arrowhead=normal, style=solid]
         algorithm -> algorithms4 -> clrs3
-        csmath -> concretemaths2 -> computationalscieng
-
+        csmath -> calculus9 -> concretemaths2 -> linearalgebra5 -> numericalmathandcomputing7 [arrowhead=normal, style=solid]
+        calculus9 -> probandstats4 [arrowhead=normal, style=solid]
+        numericalmathandcomputing7 -> computationalscieng
         cstop [fixedsize=true,width=8,height=0.01,style=invis, label=""]
         csbottom [fixedsize=true,width=8,height=0.01,style=invis,label=""]
         cstop -> { foundation; csmath; algorithm } [style=invis]
-        caaqa5 -> csbottom [style=invis]
+        cptt -> csbottom [style=invis]
     }
 
     subgraph cluster_proglang {
@@ -163,8 +126,10 @@ digraph {
             {
                 rank=same
                 cbegin [label="C"]
-                lua [label="Lua"]
+                script [label="HTML/CSS/Javascript"]
+                java [label="Java"]
                 csharp [label="C#"]
+                database [label="mysql"]
             }
 
             cppbegin [label="Beginning C++"]
@@ -200,8 +165,13 @@ digraph {
         frommathtogeneric [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/frommathtogeneric.jpg"/></TD></TR><TR><TD>From Mathematics<br/>to Generic Programming<br/>(2014)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0321942043/"]
         moderncppdesign [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/moderncppdesign.jpg"/></TD></TR><TR><TD>Modern C++ Design (2001)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0201704315/"]
 
-        programminginlua4 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/programminginlua4.jpg"/></TD></TR><TR><TD>Programming in Lua<br/>4th Ed (2016)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/8590379868/"]
-        luaprogramminggems [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/luaprogramminggems.jpg"/></TD></TR><TR><TD>Lua Programming<br/>Gems (2008)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/8590379841/"]
+        elojavaScript4 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/elojavaScript4.jpg"/></TD></TR><TR><TD>Eloquent JavaScript<br/>A Modern Introduction to Programming<br/>3rd Ed (2018)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1593279507/"]
+        learningwebdesign5 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/learningwebdesign5.jpg"/></TD></TR><TR><TD>Learning Web Design<br/>A Beginner's Guide to HTML,<br/> CSS, JavaScript, and Web Graphics<br/>5th Ed (2018)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1491960205/"]
+
+        dms3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/dms3.jpg"/></TD></TR><TR><TD>Database Management Systems<br/>3rd Ed (2002)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0072465638/"]
+
+        java3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/java3.jpg"/></TD></TR><TR><TD>Effective Java<br/>3rd Ed (2017)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0134685997/"]
+
 
         mvcsharpstepbystep8 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/mvcsharpstepbystep8.jpg"/></TD></TR><TR><TD>Microsoft Visual C#<br/>Step by Step<br/>8th Ed (2015)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1509301046/"]
         csharpindepth3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/csharpindepth3.jpg"/></TD></TR><TR><TD>C# in Depth<br/>3rd Ed (2013)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/161729134X/"]
@@ -228,13 +198,14 @@ digraph {
         insidecppobjectmodel -> imperfectcpp
         cpptemplates2 -> moderncppdesign
 
-        lua -> programminginlua4 -> luaprogramminggems
-
+        script -> elojavaScript4 -> learningwebdesign5
+        database -> dms3 [arrowhead=normal, style=solid]
         csharp -> mvcsharpstepbystep8 -> csharpindepth3 -> clrviacsharp4
+        java -> java3 [arrowhead=normal, style=solid]
 
         progtop [fixedsize=true,width=8,height=0.01,style=invis,label=""]
         progbottom [fixedsize=true,width=8,height=0.01,style=invis,label=""]
-        progtop -> { cbegin; csharp; lua } [style=invis]
+        progtop -> { cbegin; csharp; script } [style=invis]
         moderncppdesign -> progbottom [style=invis]
     }
 
@@ -260,7 +231,9 @@ digraph {
         headfirstdesignpatterns [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/headfirstdesignpatterns.jpg"/></TD></TR><TR><TD>Head First<br/>Design Patterns (2004)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0596007124/"]
         practiceofprogramming [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/practiceofprogramming.jpg"/></TD></TR><TR><TD>The Practice of<br/>Programming (1999)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/020161586X/"]
         cleancode [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/cleancode.jpg"/></TD></TR><TR><TD>Clean Code (2008)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0132350882/"]
-        refactoring [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/refactoring.jpg"/></TD></TR><TR><TD>Refactoring (1999)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0201485672/"]
+        cleanarch [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/cleanarch.jpg"/></TD></TR><TR><TD>Clean Architecture (2017)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0134494164/"]
+
+        refactoring2 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/refactoring2.jpg"/></TD></TR><TR><TD>Refactoring 2<br/>2nd Ed (2018)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0134757599/"]
         workingeffectivelylegacycode [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/workingeffectivelylegacycode.jpg"/></TD></TR><TR><TD>Working Effectively<br/>with Legacy Code <br/>(2004)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0131177052/"]
 
         umldistilled3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/umldistilled3.jpg"/></TD></TR><TR><TD>UML Distilled<br/>3rd Ed (2003)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0321193687/"]
@@ -270,7 +243,7 @@ digraph {
         sebegin -> mythicalmanmonth2 -> { sepractice; dp } [arrowhead=normal, style=solid]
         mythicalmanmonth2 -> uml
 
-        sepractice -> practiceofprogramming -> refactoring -> codecomplete2 -> { cleancode; workingeffectivelylegacycode } [arrowhead=normal, style=solid]
+        sepractice -> practiceofprogramming -> refactoring2 -> codecomplete2 -> { cleancode; workingeffectivelylegacycode } -> cleanarch [arrowhead=normal, style=solid]
         codecomplete2 -> apidesignforcpp
 
         dp -> agilesoftwaredev -> designpatterns [arrowhead=normal, style=solid]
@@ -795,8 +768,7 @@ digraph {
     {
         edge [style=invis]
         tocbottom -> legendtop
-        legendbottom -> kidtop
-        kidbottom -> cstop
+        legendbottom -> cstop
         csbottom -> progtop
         progbottom -> setop
         sebottom -> mathtop
