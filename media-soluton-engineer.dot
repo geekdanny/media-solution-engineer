@@ -26,8 +26,8 @@ digraph {
             toctop [fixedsize=true,width=10, height=2, shape=plaintext,label=<
                 <TABLE BORDER="0">
                 <TR><TD><FONT FACE="Futura" POINT-SIZE="40">A STUDY PATH FOR</FONT></TD></TR>
-                <TR><TD><FONT FACE="Futura-Bold" POINT-SIZE="40">专家成长路线图</FONT></TD></TR>
-                <TR><TD><FONT FACE="Futura" POINT-SIZE="20">Danny Song<br/>2021-Jan-3</FONT></TD></TR>
+                <TR><TD><FONT FACE="Futura-Bold" POINT-SIZE="40">Kirin媒体软件专家成长路线图</FONT></TD></TR>
+                <TR><TD><FONT FACE="Futura" POINT-SIZE="20">Prepared by Danny Song<br/>2021-Jan-3</FONT></TD></TR>
                 </TABLE>
             >]
             tocbottom [fixedsize=true,width=8,height=0.01,style=invis,label=""]
@@ -41,13 +41,13 @@ digraph {
             proglang    [color="#eddac5", label="2. Programming Languages"]
             softwaredev [color="#ebebc6", label="3. Software Engineering"]
             cg          [color="#c5e1ed", label="4. Computer Graphics"]
-            mathcg        [color="#d9ebc6", label=<4.1 Mathematics for Computer Graphics<br/>and Game Programming>]
-            gameprog       [color="#c5cbed", label="4.2 Game Programming"]
-            gameengine       [color="#c5cbed", label="4.3 Game Engine Development"]
-            audiovideo       [color="#c5cbed", label="5 Audio and Video"]
-            display     [color="#d7c5ed", label=<6 Display>]
-            camera          [color="#edc5ed", label=<7 Camera>]
-            ai [color="#edc5d7", label=<8 AI>]
+            mathcg        [color="#d9ebc6", label=<5. Mathematics for Computer Graphics<br/>and Game Programming>]
+            gameprog       [color="#c5cbed", label="6. Game Programming"]
+            gameengine       [color="#c5cbed", label="7. Game Engine Development"]
+            audiovideo       [color="#c5cbed", label="8. Audio and Video"]
+            display     [color="#d7c5ed", label=<9. Display>]
+            camera          [color="#edc5ed", label=<10. Camera>]
+            ai [color="#edc5d7", label=<11. AI>]
         }
         cs -> proglang -> softwaredev
         softwaredev -> cg -> mathcg -> gameprog -> gameengine -> audiovideo -> display -> camera -> ai[style=invis]
@@ -406,7 +406,7 @@ digraph {
 
     subgraph cluster_math {
         fillcolor="#f2f8ec"
-        label=<<TABLE BORDER="0" CELLPADDING="10"><TR><TD>5. Mathematics for Game Programming</TD></TR></TABLE>>
+        label=<<TABLE BORDER="0" CELLPADDING="10"><TR><TD>5. Mathematics for Computer Graphics and Game Programming</TD></TR></TABLE>>
 
         {
             node [shape="box", style="rounded,filled", color="#d9ebc6"]
