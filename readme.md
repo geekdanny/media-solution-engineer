@@ -1,4 +1,4 @@
-![ ](https://raw.githubusercontent.com/geekdanny/images/master/blog/media-soluton-engineer.svg)
+![ ](media-soluton-engineer.jpg)
 
 ## Disclaimer
 
