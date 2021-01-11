@@ -273,6 +273,7 @@ digraph {
             offlinerendering [label="Offline Rendering"]
             d3d [label="Direct3D"]
             ogl [label="OpenGL"]
+            vulkan [label="Vulkan"]
             cgtech [label="CG Technologies"]
             cgmisc [label="CG Articles"]
         }
@@ -288,10 +289,13 @@ digraph {
 
         graphicsshaders2 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/graphicsshaders2.jpg"/></TD></TR><TR><TD>Graphics Shaders<br/>2nd Ed (2011)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1568814348/"]
         glsl3 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/glsl3.jpg"/></TD></TR><TR><TD>OpenGL Shading<br/>Language 3rd Ed (2009)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0321637631/"]
+        learnopengl [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/learnopengl.jpg"/></TD></TR><TR><TD>Learn OpenGL: <br/>Learn modern OpenGL <br/>graphics programming<br/> in a step-by-step fashion<br/>(2020)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0672337479/"]
         oglsuper7 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/oglsuper7.jpg"/></TD></TR><TR><TD>OpenGL Super Bible<br/>7th Ed (2015)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0672337479/"]
         ogles3guide2 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/ogles3guide2.jpg"/></TD></TR><TR><TD>OpenGL ES 3.0<br/>Programming Guide<br/>2nd Ed (2014)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0321933885/"]
         oglinsights [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/oglinsights.jpg"/></TD></TR><TR><TD>OpenGL Insights (2012)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1439893764/"]
+        
         vulkanguide [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/vulkanguide.jpg"/></TD></TR><TR><TD>Vulkan Programming<br/>Guide (2016)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/0134464540/"]
+        vulkancookbook [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/vulkancookbook.jpg"/></TD></TR><TR><TD>Vulkan Cookbook:<br/>Work through recipes to unlock <br/>the full potential of the next generation<br/> graphics API - Vulkan (2017)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1786468158/"]
 
         practiald3d11 [label=<<TABLE BORDER="0" CELLSPACING="0"><TR><TD WIDTH="100" HEIGHT="100" FIXEDSIZE="TRUE"><IMG SCALE="TRUE" SRC="images/practiald3d11.jpg"/></TD></TR><TR><TD>Practical Rendering<br/>and Computation<br/>with Direct3D 11 (2011)</TD></TR></TABLE>> URL="https://www.amazon.com/dp/1568817207/"]
 
@@ -373,10 +377,10 @@ digraph {
         realtimeshadows -> graphicsprogrammingmethods [style=invis]
         tricks3dgpgurus -> realtimeshadows [style=invis]
 
-        rtr3 -> { d3d; ogl }
+        rtr3 -> { d3d; ogl, vulkan }
         d3d -> practiald3d11
-        ogl -> oglsuper7 -> { graphicsshaders2; glsl3 } -> ogles3guide2 -> oglinsights -> vulkanguide
-
+        ogl -> learnopengl-> oglsuper7 -> { graphicsshaders2; glsl3 } -> ogles3guide2 -> oglinsights
+        vulkan -> vulkanguide
         offlinerendering -> pbrt3 [arrowhead=normal, style=solid]
         offlinerendering -> raytracingfromgroundup
         raytracingfromgroundup -> pbrt3 -> advancedgi2 -> productionvolumerendering
@@ -396,7 +400,7 @@ digraph {
         cgmisc -> graphicsgems -> graphicsgems2 -> graphicsgems3 -> graphicsgems4 -> graphicsgems5
         cgmisc -> blinn1 -> blinn2 -> glassenernotebook1 -> blinn3 -> glassenernotebook2 -> magiccg
 
-        vulkanguide -> cgmisc [style=invis]
+        vulkanguide -> vulkancookbook 
 
         cgtop [fixedsize=true,width=12,height=0.01,style=invis,label=""]
         cgbottom [fixedsize=true,width=12,height=0.01,style=invis,label=""]
